@@ -23,6 +23,8 @@ void input_console(int *number_one, int*number_two)
 {
 	int symbol;
 	int len_number_one = 0;
+	system("cls");
+	printf("You select input from the console\n");
 	printf("Enter the firs number : ");
 	symbol = getc(stdin);
 	symbol = getc(stdin);

@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<malloc.h>
-#include<locale.h>
+
+#include"Operations.h"
 
 struct Numbers
 {
@@ -16,7 +17,7 @@ void Error_Operation(char operation)
 	if ((operation != '+') && (operation != '-') && (operation != '*') && (operation != '/'))
 	{
 		system("cls");
-		printf("Error.\nIncorrect operation entered: %c", operation);
+		printf("Error.\nIncorrect operation entered: %c!", operation);
 		exit(1);
 	}
 }
@@ -26,11 +27,10 @@ void Error_Operation(char operation)
 void main()
 {
 	system("cls");
-	setlocale(0, "ru");
 
 	N.number_one = NULL;
 	N.number_two = NULL;
-
+	
 	int symbol;
 	int len_number_one = 0;
 	printf("Enter the firs number : ");
@@ -62,5 +62,17 @@ void main()
 		len_number_two++;
 
 		symbol = getc(stdin);
+	}
+
+
+	switch (operation)
+	{
+	case 43:
+		Summ(N.number_one, N.number_two, len_number_one, len_number_two);
+		break;
+	default:
+		system("cls");
+		printf("Error. No such operation exists!");
+		exit(2);
 	}
 }

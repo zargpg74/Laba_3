@@ -9,6 +9,20 @@ struct Numbers
 	int* number_two;
 } N;
 
+
+
+void Error_Operation(char operation)
+{
+	if ((operation != '+') && (operation != '-') && (operation != '*') && (operation != '/'))
+	{
+		system("cls");
+		printf("Error.\nIncorrect operation entered: %c", operation);
+		exit(1);
+	}
+}
+
+
+
 void main()
 {
 	system("cls");
@@ -31,7 +45,14 @@ void main()
 		symbol = getc(stdin);
 	}
 
+	char operation;
+	printf("Enter operation: ");
+	scanf_s("%c", &operation);
+	Error_Operation(operation);
+
+	printf("Enter the second number: ");
 	int len_number_two = 0;
+	symbol = getc(stdin);
 	symbol = getc(stdin);
 	while (symbol != '\n')
 	{
@@ -41,11 +62,5 @@ void main()
 		len_number_two++;
 
 		symbol = getc(stdin);
-	}
-
-
-	for (int i = 0; i < len_number_two; i++)
-	{
-		printf("%d", N.number_two[i]);
 	}
 }
